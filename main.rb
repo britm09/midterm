@@ -13,10 +13,8 @@ require "rest_client"
 
 def get_ORD
 	response = JSON.parse(RestClient.get "http://services.faa.gov/airport/status/ORD.json")
-	response["state"].each do state
-    state = state
-    puts state
-  end
+	puts "You selected " + response['name']
+	puts response['status']['reason']
 end
 
 get_ORD
