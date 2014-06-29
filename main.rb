@@ -1,30 +1,7 @@
-# def show_message(message)
-# 	puts message
-# end
+$:.unshift (File.dirname(__FILE__))
+require 'library/flight_status'
 
-# def get_input
-# 	gets.strip
-# end
+puts "Welcome to Delay Tracker!  Find out whether your airport is experiencing any delays."
 
-# show_message("Welcome to Delay Tracker!  Find out whether your airport is experiencing weather delays.")
-
-require "json"
-require "rest_client"
-
-def get_ORD
-	response = JSON.parse(RestClient.get "http://services.faa.gov/airport/status/ORD.json")
-	puts "You selected " + response['name']
-	puts response['status']['reason']
-end
-
-get_ORD
-
-# def get_mashable_stories
-  # response = JSON.parse(RestClient.get "http://mashable.com/stories.json")
-#   response["new"].each do |story|
-#     title = story["title"]
-#     puts title
-#   end
-# end
-
-# get_mashable_stories
+x = FlightStatus.new
+x.enter_code
